@@ -1,3 +1,38 @@
-body{
-  background: green;
+html {
+  width: 100%;
+  height: 100%;
+}
+
+body {
+  height: 100%;
+  width: 100%;
+  margin: 0;
+  font-family: -apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen-Sans,Ubuntu,Cantarell,Helvetica Neue,sans-serif;
+}
+
+.container, #app {
+  height: 100%;
+  width: 100%;
+}
+
+.home-container {
+  height: 100%;
+  width: 100%;
+  background-size: cover;
+  display:flex;
+  justify-content: center;
+  align-items: center;
+
+  /* background by SVGBackgrounds.com */
+  background-color: #ff0000;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100%25' height='100%25' viewBox='0 0 1600 900'%3E%3Cdefs%3E%3ClinearGradient id='a' gradientUnits='userSpaceOnUse' x1='0' y1='0' x2='100%25' y2='0' gradientTransform='rotate(0,960,480)'%3E%3Cstop offset='0' stop-color='%23F80' stop-opacity='0'/%3E%3Cstop offset='1' stop-color='%23F80'/%3E%3C/linearGradient%3E%3ClinearGradient id='b' gradientUnits='userSpaceOnUse' x1='0' y1='0' x2='0' y2='100%25' gradientTransform='rotate(0,960,480)'%3E%3Cstop offset='0' stop-color='%23909' stop-opacity='0'/%3E%3Cstop offset='1' stop-color='%23909'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect fill='url(%23a)' width='1600' height='900'/%3E%3Crect fill='url(%23b)' fill-opacity='0.77' width='1600' height='900'/%3E%3C/svg%3E");
+  background-attachment: fixed;
+  background-size: cover;
+  background-position: center;
+}
+
+.header {
+  font-size: 45px;
+  color: #fff;
+  font-weight: 100;
 }
