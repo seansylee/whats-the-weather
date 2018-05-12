@@ -3,6 +3,10 @@ html {
   height: 100%;
 }
 
+.header-container{
+  display: flex;
+}
+
 body {
   height: 100%;
   width: 100%;
@@ -15,14 +19,20 @@ body {
   width: 100%;
 }
 
+.zipcode-container {
+  display: flex;
+}
+
 .home-container {
   height: 100%;
   width: 100%;
   background-size: cover;
   display:flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
 
+  
   /* background by SVGBackgrounds.com */
   background-color: #ff0000;
   background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100%25' height='100%25' viewBox='0 0 1600 900'%3E%3Cdefs%3E%3ClinearGradient id='a' gradientUnits='userSpaceOnUse' x1='0' y1='0' x2='100%25' y2='0' gradientTransform='rotate(0,960,480)'%3E%3Cstop offset='0' stop-color='%23F80' stop-opacity='0'/%3E%3Cstop offset='1' stop-color='%23F80'/%3E%3C/linearGradient%3E%3ClinearGradient id='b' gradientUnits='userSpaceOnUse' x1='0' y1='0' x2='0' y2='100%25' gradientTransform='rotate(0,960,480)'%3E%3Cstop offset='0' stop-color='%23909' stop-opacity='0'/%3E%3Cstop offset='1' stop-color='%23909'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect fill='url(%23a)' width='1600' height='900'/%3E%3Crect fill='url(%23b)' fill-opacity='0.77' width='1600' height='900'/%3E%3C/svg%3E");
@@ -35,4 +45,54 @@ body {
   font-size: 45px;
   color: #fff;
   font-weight: 100;
+}
+
+
+
+/*
+  Taken from node-weather app.
+  which was taken from:
+  
+*/
+
+.ghost-input, p {
+  display: block;
+  font-weight:90;
+  width: 100%;
+  font-size: 25px;
+  border:0px;
+  outline: none;
+  width: 100%;
+  text-align: center;
+  -webkit-box-szing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  color: white;
+  background: transparent;
+  padding: 10px 15px;
+  margin: 30px 0px;
+  -webkit-transition: all 0.1s ease-in-out;
+  -moz-transition: all 0.1s ease-in-out;
+  -ms-transition: all 0.1s ease-in-out;
+  -o-transition: all 0.1s ease-in-out;
+  transition: all 0.1s ease-in-out;
+}
+.ghost-input:focus {
+  border-bottom:1px solid #ddd;
+}
+.ghost-button {
+  font-weight: 100;
+  background-color: white;
+  border:2px solid #ddd;
+  padding:10px 30px;
+  width: 100%;
+  min-width: 350px;
+  -webkit-transition: all 0.1s ease-in-out;
+  -moz-transition: all 0.1s ease-in-out;
+  -ms-transition: all 0.1s ease-in-out;
+  -o-transition: all 0.1s ease-in-out;
+  transition: all 0.1s ease-in-out;
+}
+.ghost-button:hover {
+  border:2px solid #515151;
 }
