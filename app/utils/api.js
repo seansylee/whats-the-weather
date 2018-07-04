@@ -3,7 +3,6 @@ var configAPI = require('./config.json');
 
 var _baseURL = 'http://api.openweathermap.org/data/2.5/';
 const _APIKEY = configAPI.apiKey;
-//var _APIKEY = 'deca2c6ed07de47ba1ad8df1fd062839'
  
 function prepRouteParams (queryStringData){
   return Object.keys(queryStringData)
