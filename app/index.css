@@ -5,6 +5,8 @@ html {
 
 .header-container{
   display: flex;
+	justify-content: space-between;
+	padding: 15px;
 }
 
 body {
@@ -52,7 +54,6 @@ body {
 /*
   Taken from node-weather app.
   which was taken from:
-  
 */
 
 .ghost-input, p {

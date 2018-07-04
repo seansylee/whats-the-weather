@@ -7,15 +7,19 @@ class App extends React.Component {
       <div className = 'container'>
 
         <div className= 'header-container'>
-          <h1>The Main Header</h1>
+          <h1>The Main Header lol</h1>
           <ZipCode 
-          direction = 'row'/>
+						direction = 'row'
+						textColor = 'black'
+					/>
         </div>
         
         <div className = 'home-container'>
           <h2 className = 'header'>Enter a City & State</h2>
           <ZipCode 
-          direction = 'column' />
+						direction = 'column'
+						textColor = 'white'
+					/>
         </div>
 
       </div>
