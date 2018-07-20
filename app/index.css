@@ -1,12 +1,7 @@
+/* This needs a LOT of cleaning up to be done, but I will save that for another day.. */
 html {
   width: 100%;
   height: 100%;
-}
-
-.header-container{
-  display: flex;
-	justify-content: space-between;
-	padding: 15px;
 }
 
 body {
@@ -19,81 +14,283 @@ body {
 .container, #app {
   height: 100%;
   width: 100%;
-}
-
-.zipcode-container {
-  display: flex;
-}
-
-.home-container {
-  height: 100%;
-  width: 100%;
   background-size: cover;
   display:flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
 
-  
-  /* background by SVGBackgrounds.com */
-  background-color: #ff0000;
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100%25' height='100%25' viewBox='0 0 1600 900'%3E%3Cdefs%3E%3ClinearGradient id='a' gradientUnits='userSpaceOnUse' x1='0' y1='0' x2='100%25' y2='0' gradientTransform='rotate(0,960,480)'%3E%3Cstop offset='0' stop-color='%23F80' stop-opacity='0'/%3E%3Cstop offset='1' stop-color='%23F80'/%3E%3C/linearGradient%3E%3ClinearGradient id='b' gradientUnits='userSpaceOnUse' x1='0' y1='0' x2='0' y2='100%25' gradientTransform='rotate(0,960,480)'%3E%3Cstop offset='0' stop-color='%23909' stop-opacity='0'/%3E%3Cstop offset='1' stop-color='%23909'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect fill='url(%23a)' width='1600' height='900'/%3E%3Crect fill='url(%23b)' fill-opacity='0.77' width='1600' height='900'/%3E%3C/svg%3E");
-  background-attachment: fixed;
-  background-size: cover;
-  background-position: center;
+  background-color: #E3CE00;
 }
 
-.header {
-  font-size: 45px;
-  color: #fff;
-  font-weight: 100;
+.zipcode-container {
+  text-align:left;
 }
 
-
-
-/*
-  Taken from node-weather app.
-  which was taken from:
-*/
-
-.ghost-input, p {
-  display: block;
-  font-weight:90;
-  width: 100%;
-  font-size: 25px;
-  border:0px;
-  outline: none;
-  width: 100%;
+.home-container {
   text-align: center;
-  -webkit-box-szing: border-box;
-  -moz-box-sizing: border-box;
-  box-sizing: border-box;
-  color: white;
+}
+
+.main-header {
+  overflow: hidden; /* Ensures the content is not revealed until the animation */
+  border-right: .15em solid rgb(83, 83, 83); /* The typwriter cursor */
+  white-space: nowrap; /* Keeps the content on a single line */
+  margin: 0 auto; /* Gives that scrolling effect as the typing happens */
+  letter-spacing: .15em; /* Adjust as needed */
+  animation: 
+    typing 1s steps(20, end),
+    blink-caret .75s step-end infinite;
+}
+
+/* The typing effect */
+@keyframes typing {
+  from { width: 0 }
+  to { width: 100% }
+}
+
+/* The typewriter cursor effect */
+@keyframes blink-caret {
+  from, to { border-color: transparent }
+  50% { border-color: rgb(83, 83, 83); }
+}
+
+button {
   background: transparent;
-  padding: 10px 15px;
-  margin: 30px 0px;
-  -webkit-transition: all 0.1s ease-in-out;
-  -moz-transition: all 0.1s ease-in-out;
-  -ms-transition: all 0.1s ease-in-out;
-  -o-transition: all 0.1s ease-in-out;
-  transition: all 0.1s ease-in-out;
+  border: 0;
+  padding: 0;
+  cursor: pointer;
+  outline: 0;
+  -webkit-appearance: none;
 }
-.ghost-input:focus {
-  border-bottom:1px solid #ddd;
-}
-.ghost-button {
+
+/* Custom */
+button {
+  margin-top: 25px;
+  position: relative;
+  padding: 20px 38px;
+  justify-content: center;
   font-weight: 100;
-  background-color: white;
-  border:2px solid #ddd;
-  padding:10px 30px;
-  width: 100%;
-  min-width: 350px;
-  -webkit-transition: all 0.1s ease-in-out;
-  -moz-transition: all 0.1s ease-in-out;
-  -ms-transition: all 0.1s ease-in-out;
-  -o-transition: all 0.1s ease-in-out;
-  transition: all 0.1s ease-in-out;
+  top: 0;
+  font-size: 30px;
+  font-family:'Helvetica Neue', sans-serif;
+  border-radius: 4px;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.5);
+  background: rgb(0, 0, 0);
+  color: #fff;
+  box-shadow: 0px 0px 0px rgba(0, 0, 0, 0.1);
+  
+  -webkit-transform: translateZ(0);
+     -moz-transform: translateZ(0);
+      -ms-transform: translateZ(0);
+          transform: translateZ(0);
+  
+  -webkit-transition: all 0.2s ease;
+     -moz-transition: all 0.2s ease;
+      -ms-transition: all 0.2s ease;
+          transition: all 0.2s ease;
 }
-.ghost-button:hover {
-  border:2px solid #515151;
+
+button:hover {
+  top: -10px;
+  box-shadow: 0px 10px 10px rgba(163, 163, 163, 0.2);
+  
+  -webkit-transform: rotateX(20deg);
+     -moz-transform: rotateX(20deg);
+      -ms-transform: rotateX(20deg);
+          transform: rotateX(20deg);
+}
+
+button:active {
+  top: 0px;
+  box-shadow: 0px 0px 0px rgba(163, 163, 163, 0);
+  background: black;
+}
+
+.forecast-container{
+  height: 100%;
+  width: 100%;
+  background-size: cover;
+  display:flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.forecast-details{
+  color:black;
+  font-weight: 100;
+  font-size: 35px;
+  margin-top: 15px;
+}
+
+.hidden {
+  display: none;
+  visibility: hidden;
+} 
+
+.main-header { color: #111; font-family: 'Helvetica Neue', sans-serif; font-size: 275px; font-weight: bold; letter-spacing: -1px; line-height: 1; text-align: left; margin: 0}
+.main-subheader { color: #111; font-family: 'Open Sans', sans-serif; font-size: 35px; font-weight: 300; line-height: 32px; margin: 0 0 12px; text-align: left; }
+
+/* p { color: #685206; font-family: 'Helvetica Neue', sans-serif; font-size: 14px; line-height: 24px; margin: 0 0 24px; text-align: justify; text-justify: inter-word; } */
+
+input,
+span,
+label,
+textarea {
+  font-family: 'Ubuntu', sans-serif;
+  display: block;
+  margin: 10px;
+  padding: 5px;
+  border: none;
+  font-size: 22px;
+}
+
+textarea:focus,
+input:focus {
+  outline: 0;
+}
+
+input.question,
+textarea.question {
+  font-size: 48px;
+  font-weight: 300;
+  border-radius: 2px;
+  margin: 0;
+  border: none;
+  width: 80%;
+  background: rgba(0, 0, 0, 0);
+  transition: padding-top 0.2s ease, margin-top 0.2s ease;
+  overflow-x: hidden; /* Hack to make "rows" attribute apply in Firefox. */
+}
+/* Underline and Placeholder */
+
+input.question + label,
+textarea.question + label {
+  display: block;
+  position: relative;
+  white-space: nowrap;
+  padding: 0;
+  margin: 0;
+  width: 10%;
+  border-top: 1px solid red;
+  -webkit-transition: width 0.4s ease;
+  transition: width 0.4s ease;
+  height: 0px;
+}
+
+input.question:focus + label,
+textarea.question:focus + label {
+  width: 80%;
+}
+
+input.question:focus,
+input.question:valid {
+  padding-top: 35px;
+}
+
+textarea.question:valid,
+textarea.question:focus {
+  margin-top: 35px;
+}
+
+input.question:focus + label > span,
+input.question:valid + label > span {
+  top: -100px;
+  font-size: 22px;
+  color: #333;
+}
+
+textarea.question:focus + label > span,
+textarea.question:valid + label > span {
+  top: -150px;
+  font-size: 22px;
+  color: #333;
+}
+
+input.question:valid + label,
+textarea.question:valid + label {
+  border-color: green;
+}
+
+input.question:invalid,
+textarea.question:invalid {
+  box-shadow: none;
+}
+
+input.question + label > span,
+textarea.question + label > span {
+  font-weight: 300;
+  margin: 0;
+  position: absolute;
+  color: #8F8F8F;
+  font-size: 48px;
+  top: -66px;
+  left: 0px;
+  z-index: -1;
+  -webkit-transition: top 0.2s ease, font-size 0.2s ease, color 0.2s ease;
+  transition: top 0.2s ease, font-size 0.2s ease, color 0.2s ease;
+}
+
+input[type="submit"] {
+  -webkit-transition: opacity 0.2s ease, background 0.2s ease;
+  transition: opacity 0.2s ease, background 0.2s ease;
+  display: block;
+  opacity: 0;
+  margin: 10px 0 0 0;
+  padding: 10px;
+  cursor: pointer;
+}
+
+input[type="submit"]:hover {
+  background: #EEE;
+}
+
+input[type="submit"]:active {
+  background: #999;
+}
+
+input.question:valid ~ input[type="submit"], textarea.question:valid ~ input[type="submit"] {
+  -webkit-animation: appear 1s forwards;
+  animation: appear 1s forwards;
+}
+
+input.question:invalid ~ input[type="submit"], textarea.question:invalid ~ input[type="submit"] {
+  display: none;
+}
+
+@-webkit-keyframes appear {
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes appear {
+  100% {
+    opacity: 1;
+  }
+}
+
+footer{
+  width: 100%;
+  height: 10%;
+  background-color: black;
+  color: white;
+  font-family: 'Helvetica Neue', sans-serif; font-size: 30px; letter-spacing: -1px; 
+  font-weight: bold;
+  text-align: center;
+  display:flex;
+  flex-direction: column;
+  justify-content: center; 
+}
+
+.weather {
+  height: 190px;
+}
+
+.city{
+  color: #111; font-family: 'Helvetica Neue', sans-serif; font-size: 105px; font-weight: bold; letter-spacing: -1px; line-height: 1; text-align: left; margin-bottom: 1;
+}
+
+.subheader{
+  color: #111; font-family: 'Helvetica Neue', sans-serif; font-size: 65px; font-weight: bold; letter-spacing: -1px; line-height: 1; text-align: left; margin-top: 1 ;
 }

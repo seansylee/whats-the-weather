@@ -6,7 +6,7 @@ class ZipCode extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      zipcode: 98115
+      zipcode: '' 
     };
 		this.handleSubmitZipcode = this.handleSubmitZipcode.bind(this);
 		this.handleUpdateZipcode = this.handleUpdateZipcode.bind(this);
@@ -14,12 +14,18 @@ class ZipCode extends React.Component {
 
   
 	handleSubmitZipcode () {
-		api.getCurrentWeather(this.state.zipcode)
-			.then(function (res) {
-				console.log(res);
-			})
+    this.props.onSubmitZipcode(this.state.zipcode);
+    //Empty out the state of this.
+    this.setState(function() {
+      return{
+        zipcode: ''
+      } 
+    })
 	}
+  //I NEED TO UNDERSTAND THIS.
+  //What is TARGETVALUE.
 
+  // This is what is coming out of the input field.
 	handleUpdateZipcode (e) {
 		var zip = e.target.value;
 		this.setState(function () {
@@ -28,28 +34,36 @@ class ZipCode extends React.Component {
 			}
 		});
 	}
+          
   render() {
     return (
       <div
         className='zipcode-container'
 				style={{flexDirection: this.props.direction}}>
-        <input
+        {/* <input
           className= 'ghost-input'
           placeholder='Seattle, WA'
           onChange={this.handleUpdateZipcode}
 					type='text'
-					style={{color: this.props.textColor}}
-          /*value={this.state.zipcode}*/ />
-        <button
-          className= 'ghost-button'
+          style={{color: this.props.textColor}}
+          //Still trying to find the reason for this one.
+          value={this.state.zipcode}
+          /> */}
+        <form onSubmit={this.handleSubmitZipcode}>
+          <input type="text" name="name" className="question" id="nme" required autoComplete="off" onChange={this.handleUpdateZipcode} />
+          <label htmlFor="nme"></label>
+        </form>
+
+
+        {/* <button
+          //Change className to 'ghost-button for other usage'
+          //className= 'ghost-button'
+          className='button'
+          htmlFor='nme'
           type='button'
-          // Set margin and color of the input text as props.
-          // style={{margin: 10}}
-					onClick={
-							this.handleSubmitZipcode
-					}>
+					onClick={this.handleSubmitZipcode}>
           Get Weather
-        </button>
+        </button> */}
       </div>
     )
   }
@@ -62,6 +76,8 @@ ZipCode.defaultProps = {
 ZipCode.propTypes = {
 	direction: PropTypes.string,
 	textColor: PropTypes.string,
+	onSubmitZipcode: PropTypes.func,
 }
 
 module.exports = ZipCode;
+          

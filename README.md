@@ -1,2 +1,2 @@
 # whats-the-weather
-Weather app create with React.
+Weather app created with React.
