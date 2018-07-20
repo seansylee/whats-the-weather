@@ -23,7 +23,7 @@ class ForecastDetail extends React.Component{
    render() {
     return(
       <div className='forecast-container'>
-        <h2 className='city'>{this.state.name}.</h2>
+        <h2 className='city'>{this.state.name},</h2>
         <img className='weather' src={'./app/images/weather-icons/' + this.state.icon + '.svg'} alt='Weather' />
         <h2 className='subheader'>{this.state.dt}</h2>
         <div className='forecast-details'><b>" {this.state.description} "</b></div>

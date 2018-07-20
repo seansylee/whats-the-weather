@@ -1,2 +1,3 @@
-# whats-the-weather
+# :umbrella: Your Forecast !
+
 Weather app created with React.
