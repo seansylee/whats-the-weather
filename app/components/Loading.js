@@ -37,7 +37,6 @@ class Loading extends React.Component {
     }.bind(this), this.props.speed)
   }
   componentWillUnmount () {
-    console.log("CLEARED @", this.interval, 'intervals');
     window.clearInterval(this.interval);
   }
   render(){
@@ -49,7 +48,7 @@ class Loading extends React.Component {
   }
 }
 
-Loading.PropTypes ={
+Loading.PropTypes = {
   text: PropTypes.string.isRequired,
   speed: PropTypes.number.isRequired,
 }

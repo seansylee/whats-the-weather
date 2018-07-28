@@ -3,19 +3,21 @@ var api = require('../utils/api');
 var queryString = require('query-string');
 var ForecastDetail = require('./ForecastDetail');
 var Loading = require('./Loading');
+var Error = require('./Error');
 
 class Forecast extends React.Component {
 	constructor(props){
 		super(props)
 		this.state = {
 			forecastData: [],
-			loading: true 
+			loading: true,
+			badParam: false,
+			city: ''
 		}
 		this.makeRequest = this.makeRequest.bind(this);
 	}
 
 	componentDidMount(){
-		console.log("ive mounted");
 		var city = queryString.parse(this.props.location.search).city;
 		this.makeRequest(city);
 	}
@@ -34,26 +36,39 @@ class Forecast extends React.Component {
 
 		api.getCurrentWeather(city)
 			.then(function (res){
-		console.log("from API call", res);
+				console.log(res);
 				this.setState(function () {
 					return {
 						loading: false,
-						forecastData: res
+						forecastData: res,
+						badParam: false,
+						city: city
 					}
 				})
 			}.bind(this))
+			.catch(function(err) {
+				this.setState(function(){
+					return {
+						loading: false,
+						forecastData: null,
+						badParam: true,
+						city: city 
+					}
+				})
+			}.bind(this));
 	}
 
 	render() {
-		console.log("loading?", this.state.loading)
-		console.log("from render", this.state.forecastData);
-		return (
-			this.state.loading === true
-			?<div className='forecast-container'>
+		if(this.state.loading){
+			return(
+			<div className='forecast-container'>
 				<Loading />
-			</div>			
-			:<ForecastDetail current={this.state.forecastData}/>
-			)
+			</div>)
+		} else if(this.state.badParam){
+			return <Error wrongParam={this.state.city} />
+		} else {
+			return <ForecastDetail current={this.state.forecastData}/>
+		}
 	}
 }
 

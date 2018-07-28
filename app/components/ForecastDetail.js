@@ -20,7 +20,8 @@ class ForecastDetail extends React.Component{
       temp_max: convertTemp(this.props.current.main.temp_max)
     }
   }
-   render() {
+	render() {
+		console.log(this.state)
     return(
       <div className='forecast-container'>
         <h2 className='city'>{this.state.name},</h2>
