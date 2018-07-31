@@ -25,8 +25,9 @@ $ npm install
 
 This app is hosted on Firebase by Google. Check out firebase [here](https://firebase.google.com/)
 
-#Some bugs..
-######Important
+#Some bugs
+
+###Important
 The app is currently not fetching any weather information as OpenWeather has changed the api tier availabilities,
 
 This will be updated soon!
