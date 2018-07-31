@@ -2,3 +2,5 @@ dist
 node_modules
 DS_Store
 app/utils/config.json
+.firebaserc
+firebase.json
